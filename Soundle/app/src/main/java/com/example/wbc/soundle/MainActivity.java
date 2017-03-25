@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+
 }
 
 
@@ -28,6 +30,18 @@ public class Book{
         this.name = name;
         this.author = author;
         this.tipo = tipo;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public String getAuthor(){
+        return author;
+    }
+
+    public Type getTipo(){
+        return tipo;
     }
 }
 
@@ -43,6 +57,12 @@ public class Type{
         playlists = new LinkedList<Playlist>();
         this.tipo = tipo;
     }
+
+    public String getName(){
+        return name;
+    }
+
+    public addBook()
 }
 
 public class Playlist{
@@ -85,18 +105,18 @@ public class Playlist{
         return author;
     }
 
-    public void addMusic(Music music)throws MusicException{
+    public void addMusic(Music music)throws AllException{
         if (musics.contains(music))
-            throw new MusicException();
+            throw new AllException();
         musics.add(music);
         rating += music.getRating();
         counter++;
         duration += music.getDuration();
     }
 
-    public void remMusic(Music music) throws MusicException{
+    public void remMusic(Music music) throws AllException{
         if (musics.contains(music))
-            throw new MusicException();
+            throw new AllException();
         musics.remove(music);
         rating -= music.getRating();
         counter--;
@@ -108,21 +128,21 @@ public class Playlist{
     }
 }
 
-public class MusicException extends Exception {
+public class AllException extends Exception {
 
     private static final String OTHER_LOGGED = "BATATA.";
 
     /**
      *
      */
-    public MusicException() {
+    public AllException() {
         super(OTHER_LOGGED);
     }
 
     /**
      * @param message
      */
-    public MusicException(String message) {
+    public AllException(String message) {
         super(message);
     }
 
